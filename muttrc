@@ -1,0 +1,127 @@
+# -*- muttrc -*-
+
+#
+# Folders
+#
+set folder="$HOME/mail"
+set record="+OUT"
+#use an mbox to clean out the spoolfile
+set mbox="+IN-inbox"
+set move=yes
+set postponed="+OUT-drafts"
+
+
+#
+# Mailboxes
+# (Find all in $HOME/mail)
+#
+mailboxes `find $HOME/mail -name "*IN-*" -printf "+%f "`
+
+
+#
+# Options
+#
+set noconfirmappend
+auto_view text/html
+
+
+#
+# Headers
+#
+# "From"
+set realname="Ahmed (Med) Mahmoud"
+set from="ahmed@medhatter.com"
+set use_from=yes
+# don't prompt for to and subject
+set edit_headers=yes
+set autoedit
+
+
+#
+# Keycodes and macros
+# 
+bind index k previous-entry
+bind index j next-entry
+bind index - previous-page
+bind index <space> next-page
+macro index l <display-message>
+macro index h <sync-mailbox><change-folder>? "Go to the folder menu" 
+macro index B ":set pipe_decode\n|urlview\n:unset pipe_decode\n"
+macro index A "!vim ~/.procmail.d/rc.subscriptions"
+macro index <tab> <next-unread><enter>
+
+macro pager h <exit>
+macro pager l <noop>
+macro pager k <previous-line>
+macro pager j <next-line>
+macro pager H <previous-entry>
+macro pager L <next-entry>
+macro pager A "!vim ~/.procmail.d/rc.subscriptions"
+macro pager B ":set pipe_decode\n|urlview\n:unset pipe_decode\n"
+
+macro browser <space> <check-new>
+macro browser l <select-entry>
+macro browser h <exit>
+
+#
+# Display
+#
+set markers=no
+# don't display all the headers by default
+ignore headers *
+unignore headers from to subject date cc
+hdr_order to from subject date
+
+
+#
+# Threading
+#
+set sort=threads
+
+
+#
+# Colour settings for mutt.
+#
+
+# Default colour definitions
+color hdrdefault brightblack  default
+color quoted     red          default
+color signature  brightblack  default
+color indicator  black	      yellow
+color attachment black        yellow
+color error      magenta      default
+color message    cyan         default
+color search     brightwhite  red
+color status     black        cyan
+color tree       red          default
+color normal     white        default
+color tilde      cyan        default
+color bold       brightyellow default
+color markers    red          default
+
+# Colours for items in the reader
+color header cyan default "^(From|Subject):"
+
+# Colours for items in the index
+color index cyan        default ~N
+color index red         default ~F
+color index black       cyan ~T
+color index red         default ~D
+
+# Highlights inside the body of a message.
+
+# URLs
+color body brightblue  default "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+color body brightblue  default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body brightblue  default "news:[^ \">\t\r\n]*"
+
+# email addresses
+color body brightblue  default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Various smilies and the like
+color body brightgreen default "<[Gg]>"                                            # <g>
+color body brightgreen default "<[Bb][Gg]>"                                        # <bg>
+color body brightgreen default " [;:]-*[)>(<|]"                                    # :-) etc...
+color body brightblue  default "(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)" # *Bold* text.
+color body brightblue  default "(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)"     # _Underlined_ text.
+color body brightblue  default "(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)"     # /Italic/ text.
