@@ -83,7 +83,7 @@ myKeyMapping = [
 	       , ("M-S-x", spawn myTerminal) 
 	       , ("M-x", scratchpadSpawnActionTerminal myTerminal) 
 	       , ("M-u", inTerm "screen -U -d -R") 
-	       , ("M-S-u", inTerm "vim ~/.xmonad/xmonad.hs") 
+	       , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
 	       , ("M-v", inTerm "alsamixer") 
 	       , ("M-w", inTerm "sudo wifi-select wlan0") 
 	       , ("M-S-s", inTerm "ssh -t goliath@jupiterbrains -p24 screen -r")
@@ -101,9 +101,9 @@ myKeyMapping = [
 	       , ("M-S-t", tagPrompt myXPConfig (\s -> withFocused (addTag s)))
 
 	       -- Refresh statusbar if I want
-	       , ("M-r", spawn "/bin/bash /home/med/scripts/go_status.sh")
+	       , ("M-r", spawn "/bin/bash ~/scripts/go_status.sh")
 	       -- Sort unsorted downloads
-	       , ("M-S-d", spawn "python /home/med/scripts/sort-downloaded.py")
+	       , ("M-S-d", spawn "python ~/scripts/sort-downloaded.py")
 
 	       -- Window management
 	       , ("M-o", windows W.focusMaster) 

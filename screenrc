@@ -1,4 +1,4 @@
 caption always "%{-b ..}%-w%{+b ..}[[%n%f*%t]]%{-}%+w"
 escape ^Rr
-screen -t "Mail" mutt
 screen -t "IRC" irssi
+screen -t "Mail" mutt

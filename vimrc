@@ -1,7 +1,8 @@
 set autoindent
 set number
 set incsearch
-nnoremap <Space> <silent> :set nohls<CR>
+set hlsearch
+nnoremap <Space> <silent> :nohls<CR>
 nnoremap ; :
 nnoremap ,c :s/^/# /<CR>
 nnoremap ,u :s/^# //<CR>
