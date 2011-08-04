@@ -1,0 +1,4 @@
+source screenrc
+screen -t Mail mutt
+screen -t Chat irssi
+
