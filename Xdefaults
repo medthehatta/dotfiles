@@ -3,41 +3,40 @@ urxvt*font: -*-dina-medium-r-*-*-*-*-*-*-*-*-*-*
 urxvt*boldFont: -*-dina-medium-r-*-*-*-*-*-*-*-*-*-*
 urxvt*foreground:   #ffffff
 urxvt**background:  #333333
+
+!black
 urxvt*color0:  black
-urxvt*color1:  #ffa0a0
-urxvt*color2:  #bdb76b
+urxvt*color8:  black
+
+!red
+urxvt*color1:  #cd5c5c
+urxvt*color9:  #cd5c5c
+
+!green
+urxvt*color2:  #98fb98
+urxvt*color10:  #98fb98
+
+!yellow
 urxvt*color3:  #f0e68c
+urxvt*color11:  #f0e68c
+
+!blue
 urxvt*color4:  #87ceeb
-urxvt*color5:  #cd5c5c
+urxvt*color12:  #87ceeb
+
+!magenta
+urxvt*color5:  #ffa0a0
+urxvt*color13:  #ffa0a0
+
+!cyan
 urxvt*color6:  #98fb98
+urxvt*color14:  #98fb98
+
+!white
 urxvt*color7:  #ffffff
-urxvt*color8:  gray60
-urxvt*color9:  #ffa0a0
-urxvt*color10: #bdb76b
-urxvt*color11: #f0e68c
-urxvt*color12: #87ceeb
-urxvt*color13: #cd5c5c
-urxvt*color14: #98fb98
-urxvt*color15: #ffffff
-scratchpad*scrollBar: false
-scratchpad*font: -*-dina-medium-r-*-*-*-*-*-*-*-*-*-*
-scratchpad*boldFont: -*-dina-medium-r-*-*-*-*-*-*-*-*-*-*
-scratchpad*foreground:   #ffffff
-scratchpad**background:  #333333
-scratchpad*color0:  black
-scratchpad*color1:  #ffa0a0
-scratchpad*color2:  #bdb76b
-scratchpad*color3:  #f0e68c
-scratchpad*color4:  #87ceeb
-scratchpad*color5:  #cd5c5c
-scratchpad*color6:  #98fb98
-scratchpad*color7:  #ffffff
-scratchpad*color8:  gray60
-scratchpad*color9:  #ffa0a0
-scratchpad*color10: #bdb76b
-scratchpad*color11: #f0e68c
-scratchpad*color12: #87ceeb
-scratchpad*color13: #cd5c5c
-scratchpad*color14: #98fb98
-scratchpad*color15: #ffffff
+urxvt*color15:  #ffffff
+
+urxvt.perl-ext-common: default,matcher
+urxvt.urlLauncher: chromium
+urxvt.colorUL: #90d0f0
 

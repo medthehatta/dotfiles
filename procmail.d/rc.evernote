@@ -1,0 +1,17 @@
+:0: 
+* ^Subject:.*confirmation|.*receipt|.*reminder
+* ! ^X-Loop: ImGonnaHaveToFigureThisOutSomedayButForNowItsTODO
+{
+    :0 c
+    IN-inbox
+
+    :0 chfw
+    SUBJ=| formail -xSubject:
+
+    :0 chfw
+    | /usr/bin/formail -i "Subject: $SUBJ #receipts"
+
+    :0
+    ! medthehatta.6e7a2@m.evernote.com 
+}
+

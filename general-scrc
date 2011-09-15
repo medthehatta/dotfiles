@@ -1,4 +1,4 @@
 source screenrc
 screen -t Mail mutt
-screen -t Chat irssi
+screen -t St0rage ssh -t med@st0rage.org screen -R
 

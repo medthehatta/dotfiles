@@ -2,7 +2,7 @@ set autoindent
 set number
 set incsearch
 set hlsearch
-nnoremap <Space> <silent> :nohls<CR>
+nnoremap <Space> :set hlsearch!<CR>
 nnoremap ; :
 nnoremap ,c :s/^/# /<CR>
 nnoremap ,u :s/^# //<CR>
@@ -18,3 +18,6 @@ set showcmd
 set mouse=a
 colorscheme elflord
 syntax on
+
+
+

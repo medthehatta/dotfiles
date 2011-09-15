@@ -1,0 +1,13 @@
+SHELL=/bin/sh
+PMDIR=$HOME/.procmail.d
+LOGFILE=$PMDIR/pmlog
+MAILDIR=$HOME/mail
+
+INCLUDERC=$PMDIR/rc.evernote
+INCLUDERC=$PMDIR/rc.system
+INCLUDERC=$PMDIR/rc.subscriptions
+INCLUDERC=$PMDIR/rc.lbdb
+
+:0:
+* .*
+IN-inbox

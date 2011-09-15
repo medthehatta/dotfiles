@@ -1,0 +1,4 @@
+:0:
+* ^Subject:.*cron
+SYS-cron
+

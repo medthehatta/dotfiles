@@ -1,0 +1,7 @@
+MODULES_PATH="/usr/lib /usb/lib/lbdb $HOME/.lbdb/modules"
+
+METHODS="m_goobook m_inmail m_gpg"
+
+SORT_OUTPUT=name
+KEEP_DUPES=true
+
