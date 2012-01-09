@@ -1,3 +1,4 @@
 caption always "%{-b ..}%-w%{+b ..}[[%n%f*%t]]%{-}%+w"
+term rxvt-256color
 escape ^Rr
 

@@ -30,7 +30,7 @@ auto_view text/html
 #
 # "From"
 set realname="Ahmed (Med) Mahmoud"
-set from="ahmed@medhatter.com"
+#set from="ahmed@medhatter.com"
 set use_from=yes
 # don't prompt for to and subject
 set autoedit

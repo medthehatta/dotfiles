@@ -15,7 +15,7 @@ xmodmap ~/.xmodmap
 
 # If the external monitor is connected, turn it on
 if [ $(xrandr -q | grep VGA1 | cut -d' ' -f2) == 'connected' ]; then
-	xrandr --output VGA1 --mode 1280x1024 --above LVDS1
+	xrandr --output VGA1 --auto --right-of LVDS1
 fi
 
 # xflux changes the color temperature of my screen based on the time of day

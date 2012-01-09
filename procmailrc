@@ -3,6 +3,7 @@ PMDIR=$HOME/.procmail.d
 LOGFILE=$PMDIR/pmlog
 MAILDIR=$HOME/mail
 
+INCLUDERC=$PMDIR/rc.temple
 INCLUDERC=$PMDIR/rc.evernote
 INCLUDERC=$PMDIR/rc.system
 INCLUDERC=$PMDIR/rc.subscriptions
