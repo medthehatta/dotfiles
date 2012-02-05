@@ -3,7 +3,8 @@ set number
 set incsearch
 set hlsearch
 nnoremap <Space> :set hlsearch!<CR>
-nnoremap ; :
+noremap ; :
+noremap , ;
 nnoremap ,c :s/^/# /<CR>
 nnoremap ,u :s/^# //<CR>
 imap jj <esc>

@@ -1,0 +1,19 @@
+[options]
+verbose = 1
+delete = 0
+message_log = ~/.getmail.log
+read_all = false
+
+[retriever]
+type = SimpleIMAPSSLRetriever
+server = imap.gmail.com
+mailboxes = ("INBOX",)
+username = medthehatta@gmail.com
+password = U!t1wimn^b!j
+
+[destination]
+type = MDA_external
+path = /usr/bin/procmail
+unixfrom = True
+
+

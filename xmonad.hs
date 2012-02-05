@@ -78,6 +78,7 @@ myKeyMapping = [
 	       -- Launcher: 
 	       ("M-S-p", AL.launchApp myXPConfig $ myTerminalEx "screen -U -d -R -S ")
 	       , ("M-v", spawn "rox ~")
+	       , ("M-S-v", spawn "rox ~/Downloads")
 
                -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi, seedbox login
 	       , ("M-S-x", spawn myTerminal) 
