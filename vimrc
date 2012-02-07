@@ -5,6 +5,7 @@ set hlsearch
 nnoremap <Space> :set hlsearch!<CR>
 noremap ; :
 noremap , ;
+nnoremap K o<esc>
 nnoremap ,c :s/^/# /<CR>
 nnoremap ,u :s/^# //<CR>
 imap jj <esc>
@@ -19,6 +20,8 @@ set showcmd
 set mouse=a
 colorscheme elflord
 syntax on
+autocmd BufEnter * silent! lcd %:p:h
+
 
 
 

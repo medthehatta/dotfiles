@@ -9,9 +9,11 @@ alias cls='clear; ls'
 alias psu='ps -U $USER -o pid,cmd'
 alias x='exit'
 alias off='sudo shutdown -h now'
+alias ..='cd ..'
+alias ...='cd ../..'
 
 # Some locale stuff
-export PS1='\!:$ '
+export PS1='\t$ '
 export TZ='America/New_York'
 
 # For dealing with commonly used remote hosts
@@ -28,5 +30,6 @@ source /usr/lib/f.sh
 alias v='f -e vim'
 alias j='d -e cd'
 alias o='a -e xdg-open'
+alias l='d -e ls'
 
 

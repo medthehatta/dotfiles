@@ -33,8 +33,15 @@ import Control.Monad
 myModMask = mod4Mask
 myTerminal = "urxvt"
 -- shortcut for constructing the command for opening a program in the terminal
-myTerminalEx cmd = myTerminal ++ " -e " ++ cmd
+-- (vanilla term)
+myTerminalEx cmd = myTerminal ++ " -e " ++ cmd 
 inTerm cmd = spawn $ myTerminalEx cmd
+-- (named screen)
+myNamedScreenEx name cmd = myTerminalEx "screen -U -d -R -S " ++ name ++ " " ++ cmd
+inNamedScreen name cmd = spawn $ myNamedScreenEx name cmd 
+-- (default screen)
+myScreenEx = myNamedScreenEx "launch"
+inScreen cmd = spawn $ myScreenEx cmd
 
 
 
@@ -75,18 +82,17 @@ myWorkspaces = ["1","2","3","4","5","6","7","8","9"]
 
 -- Key bindings, readably formatted for additionalKeysP in EZConfig
 myKeyMapping = [ 
-	       -- Launcher: 
-	       ("M-S-p", AL.launchApp myXPConfig $ myTerminalEx "screen -U -d -R -S ")
-	       , ("M-v", spawn "rox ~")
+	       -- File Browser:
+	       ("M-v", spawn "rox ~")
 	       , ("M-S-v", spawn "rox ~/Downloads")
 
                -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi, seedbox login
 	       , ("M-S-x", spawn myTerminal) 
-	       , ("M-x", inTerm "screen -S scratchpad -U -d -R") 
-	       , ("M-u", inTerm "screen -c ~/dotfiles/general-scrc -S general -U -d -R") 
-	       , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
-	       , ("M-w", inTerm "sudo wifi-select wlan0") 
-	       , ("M-S-w", inTerm "sudo netcfg -a")
+	       , ("M-x", inNamedScreen "scratchpad" "")
+	       , ("M-u", inNamedScreen "general" "-c ~/dotfiles/general-scrc")
+	       , ("M-S-u", inScreen "vim ~/dotfiles/xmonad.hs") 
+	       , ("M-w", inScreen "sudo wifi-select wlan0") 
+	       , ("M-S-w", inScreen "sudo netcfg -a")
 
 	       -- Prompts: Search, manpages, web browse, or edit 
 	       , ("M-g", S.promptSearch myXPConfig S.google) 
@@ -95,22 +101,22 @@ myKeyMapping = [
 	       , ("M-d", AL.launchApp myXPConfig $ "surfraw -browser=chromium")
 	       , ("M-f", AL.launchApp myXPConfig $ "chromium") 
 	       , ("M-S-f", AL.launchApp myXPConfig $ "chromium --incognito") 
-	       , ("M-e", AL.launchApp myXPConfig $ myTerminalEx "vim") 
-	       , ("M-S-e", AL.launchApp myXPConfig $ myTerminalEx "sudo vim") 
+	       , ("M-e", AL.launchApp myXPConfig $ myScreenEx "/usr/lib/f.sh -e vim ")
+	       , ("M-S-e", inScreen "vim `mktemp` ")
 	       -- Tags:
 	       , ("M-t", tagPrompt myXPConfig (\s -> focusUpTaggedGlobal s))  --raise
 	       , ("M-S-t", tagPrompt myXPConfig (\s -> withFocused (addTag s)))
 
 	       -- Refresh statusbar if I want
 	       , ("M-r", spawn "/bin/bash ~/scripts/go_status.sh")
-	       , ("M-S-r", inTerm "sudo ntpdate tick.ucla.edu")
+	       , ("M-S-r", inScreen "sudo ntpdate tick.ucla.edu")
 
 	       -- XMMS2
 	       , ("M-b l", spawn "nyxmms2 next")
 	       , ("M-b h", spawn "nyxmms2 prev")
 	       , ("M-b j", spawn "nyxmms2 toggle")
 	       , ("M-b k", spawn "nyxmms2 stop")
-	       , ("M-b d", inTerm "/usr/bin/python2 ~/scripts/gsdl.py")
+	       , ("M-b d", inScreen "/usr/bin/python2 ~/scripts/gsdl.py")
 
 	       -- Window management
 	       , ("M-o", windows W.focusMaster) 
