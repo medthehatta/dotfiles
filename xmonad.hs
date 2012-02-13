@@ -90,9 +90,8 @@ myKeyMapping = [
 	       , ("M-S-x", spawn myTerminal) 
 	       , ("M-x", inNamedScreen "scratchpad" "")
 	       , ("M-u", inNamedScreen "general" "-c ~/dotfiles/general-scrc")
-	       , ("M-S-u", inScreen "vim ~/dotfiles/xmonad.hs") 
-	       , ("M-w", inScreen "sudo wifi-select wlan0") 
-	       , ("M-S-w", inScreen "sudo netcfg -a")
+	       , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
+	       , ("M-w", inTerm "sudo wifi-select wlan0") 
 
 	       -- Prompts: Search, manpages, web browse, or edit 
 	       , ("M-g", S.promptSearch myXPConfig S.google) 
@@ -102,21 +101,21 @@ myKeyMapping = [
 	       , ("M-f", AL.launchApp myXPConfig $ "chromium") 
 	       , ("M-S-f", AL.launchApp myXPConfig $ "chromium --incognito") 
 	       , ("M-e", AL.launchApp myXPConfig $ myScreenEx "/usr/lib/f.sh -e vim ")
-	       , ("M-S-e", inScreen "vim `mktemp` ")
+	       , ("M-S-e", inTerm "vim `mktemp` ")
 	       -- Tags:
 	       , ("M-t", tagPrompt myXPConfig (\s -> focusUpTaggedGlobal s))  --raise
 	       , ("M-S-t", tagPrompt myXPConfig (\s -> withFocused (addTag s)))
 
 	       -- Refresh statusbar if I want
 	       , ("M-r", spawn "/bin/bash ~/scripts/go_status.sh")
-	       , ("M-S-r", inScreen "sudo ntpdate tick.ucla.edu")
+	       , ("M-S-r", inTerm "sudo ntpdate tick.ucla.edu")
 
 	       -- XMMS2
 	       , ("M-b l", spawn "nyxmms2 next")
 	       , ("M-b h", spawn "nyxmms2 prev")
 	       , ("M-b j", spawn "nyxmms2 toggle")
 	       , ("M-b k", spawn "nyxmms2 stop")
-	       , ("M-b d", inScreen "/usr/bin/python2 ~/scripts/gsdl.py")
+	       , ("M-b d", inTerm "/usr/bin/python2 ~/scripts/gsdl.py")
 
 	       -- Window management
 	       , ("M-o", windows W.focusMaster) 

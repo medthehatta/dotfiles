@@ -9130,3 +9130,26 @@ procmail: Extraneous filter-flag ignored
 From dassault@emailing.3ds.com Mon Feb  6 20:20:55 2012
  Subject: New DraftSight Service Pack Available
   Folder: IN-inbox							   4960
+procmail: Extraneous locallockfile ignored
+procmail: Extraneous filter-flag ignored
+procmail: Extraneous copy-flag ignored
+procmail: Extraneous copy-flag ignored
+From harris.shaikh@gmail.com Sun Feb 12 20:17:08 2012
+ Subject:  Fw: Preregistration for the 2012 MRS Spring Meeting is Now Open #rec
+  Folder: /usr/sbin/sendmail -oi medthehatta.6e7a2@m.evernote.com	  23099
+procmail: Extraneous locallockfile ignored
+procmail: Extraneous filter-flag ignored
+postdrop: warning: unable to look up public/pickup: No such file or directory
+From moveon-bounce-35680-8382725-Gp6lkLx@list.moveon.org Sun Feb 12 20:17:08 2012
+ Subject: Eating my words
+  Folder: IN-inbox							   9973
+procmail: Extraneous locallockfile ignored
+procmail: Extraneous filter-flag ignored
+From noreply@notifications.skype.com Sun Feb 12 20:17:09 2012
+ Subject: We've activated your group video trial
+  Folder: IN-inbox							  14339
+procmail: Extraneous locallockfile ignored
+procmail: Extraneous filter-flag ignored
+From yukio.utada@gmail.com Sun Feb 12 20:17:10 2012
+ Subject: winter workshop
+  Folder: IN-inbox							 115155
