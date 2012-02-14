@@ -9153,3 +9153,8 @@ procmail: Extraneous filter-flag ignored
 From yukio.utada@gmail.com Sun Feb 12 20:17:10 2012
  Subject: winter workshop
   Folder: IN-inbox							 115155
+procmail: Extraneous locallockfile ignored
+procmail: Extraneous filter-flag ignored
+From noreply@github.com Sun Feb 12 22:13:43 2012
+ Subject: [GitHub] Please reset your password
+  Folder: IN-inbox							   1660
