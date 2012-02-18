@@ -50,12 +50,17 @@ noremap <f6> :!./upload<CR>
 map <left> :bp!<CR> 
 map <right> :bn!<CR> 
 
-colorscheme elflord
+colorscheme elflord     " Dark colorscheme
+
+" Syntax highlighting and filetype-specific goodness
+filetype plugin on      
 syntax on       
 
 " Automatically change into the file's local directory (but leave it on quit)
 autocmd BufEnter * silent! lcd %:p:h "change into 
 
+" Sage notebooks are essentially python
+autocmd BufRead,BufNewFile *.sage set filetype=python
 
 
 
