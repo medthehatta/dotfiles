@@ -46,6 +46,10 @@ inoremap <C-e> <C-r>
 noremap <f5> :!./view<CR>               
 noremap <f6> :!./upload<CR>
 
+" Easy switching between buffers
+map <left> :bp!<CR> 
+map <right> :bn!<CR> 
+
 colorscheme elflord
 syntax on       
 
