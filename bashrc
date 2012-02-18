@@ -25,8 +25,8 @@ export enote='medthehatta.6e7a2@m.evernote.com'
 export st0r='med@st0rage.org'
 export dfrpglogs='med@st0rage.org:/home/med/public_html/dfrpg-logs'
 
-#f-git, for dealing with recent files
-source /usr/lib/f.sh
+#fasd, for dealing with recent files
+eval "$(fasd --init auto)"
 alias v='f -e vim'
 alias j='d -e cd'
 alias o='a -e xdg-open'
