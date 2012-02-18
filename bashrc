@@ -28,7 +28,7 @@ export dfrpglogs='med@st0rage.org:/home/med/public_html/dfrpg-logs'
 #fasd, for dealing with recent files
 eval "$(fasd --init auto)"
 alias v='f -e vim'
-alias j='d -e cd'
+alias j='z' # z is the default "cd" action in fast now
 alias o='a -e xdg-open'
 alias l='d -e ls'
 
