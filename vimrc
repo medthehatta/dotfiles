@@ -20,6 +20,9 @@ set wildmode=list:longest,full          " how to display completion lists
 " toggle search highlighting
 nnoremap <Space> :set hlsearch!<CR>
 
+" autocomplete
+inoremap ^<Space> ^n
+
 " change command leader to semicolon
 noremap ; :
 
@@ -30,14 +33,19 @@ noremap , ;
 nnoremap K o<esc>
 
 " comment line
-nnoremap ,c :'<,'>s/^/# /<CR>
+nnoremap ,c :s/^/# /<CR>
+vnoremap ,c :'<,'>s/^/# /<CR>
 
 " uncomment line
 nnoremap ,u :s/^# //<CR>
+vnoremap ,u :'<,'>s/^# //<CR>
 
 " quick way to leave insert mode (part one)
 inoremap kj <esc>
 inoremap jk <esc>
+
+" quick write
+nnoremap W :w<CR>
 
 " i use C-r as my screen escape, so avoid it
 inoremap <C-e> <C-r>                    
