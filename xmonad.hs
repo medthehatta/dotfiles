@@ -86,12 +86,14 @@ myKeyMapping = [
 	       ("M-v", spawn "rox ~")
 	       , ("M-S-v", spawn "rox ~/Downloads")
 
-               -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi, seedbox login
+               -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi
 	       , ("M-S-x", spawn myTerminal) 
+               , ("M-S-p", AL.launchApp myXPConfig $ myTerminalEx "screen -U -d -R -S ")
 	       , ("M-x", inNamedScreen "scratchpad" "")
 	       , ("M-u", inNamedScreen "general" "-c ~/dotfiles/general-scrc")
 	       , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
 	       , ("M-w", inTerm "sudo wifi-select wlan0") 
+	       , ("M-S-w", inTerm "sudo netcfg -a") 
 
 	       -- Prompts: Search, manpages, web browse, or edit 
 	       , ("M-g", S.promptSearch myXPConfig S.google) 
@@ -100,7 +102,7 @@ myKeyMapping = [
 	       , ("M-d", AL.launchApp myXPConfig $ "surfraw -browser=chromium")
 	       , ("M-f", AL.launchApp myXPConfig $ "chromium") 
 	       , ("M-S-f", AL.launchApp myXPConfig $ "chromium --incognito") 
-	       , ("M-e", AL.launchApp myXPConfig $ myScreenEx "/usr/lib/f.sh -e vim ")
+	       , ("M-e", AL.launchApp myXPConfig $ myScreenEx "fasd -e vim ")
 	       , ("M-S-e", inTerm "vim `mktemp` ")
 	       -- Tags:
 	       , ("M-t", tagPrompt myXPConfig (\s -> focusUpTaggedGlobal s))  --raise
