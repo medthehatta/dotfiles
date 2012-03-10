@@ -102,8 +102,10 @@ myKeyMapping = [
 	       , ("M-d", AL.launchApp myXPConfig $ "surfraw -browser=chromium")
 	       , ("M-f", AL.launchApp myXPConfig $ "chromium") 
 	       , ("M-S-f", AL.launchApp myXPConfig $ "chromium --incognito") 
-	       , ("M-e", AL.launchApp myXPConfig $ myScreenEx "fasd -e vim ")
-	       , ("M-S-e", inTerm "vim `mktemp` ")
+	       , ("M-e e", AL.launchApp myXPConfig $ myScreenEx "fasd -e vim ")
+	       , ("M-e t", inTerm "vim `mktemp` ")
+	       , ("M-e n", spawn "~/scripts/mknotes.sh")
+	       , ("M-e r", spawn "~/scripts/mkrenotes.sh")
 	       -- Tags:
 	       , ("M-t", tagPrompt myXPConfig (\s -> focusUpTaggedGlobal s))  --raise
 	       , ("M-S-t", tagPrompt myXPConfig (\s -> withFocused (addTag s)))
