@@ -53,6 +53,7 @@ inoremap <C-e> <C-r>
 " For my rst->latex homework scripts
 noremap <f5> :!./view<CR>               
 noremap <f6> :!./upload<CR>
+noremap <f7> :!./build<CR><CR>
 
 " Easy switching between buffers
 map <left> :bp!<CR> 
