@@ -32,6 +32,9 @@ noremap , ;
 " open a line below
 nnoremap K o<esc>
 
+" in ReST, 'underline' the section
+nnoremap gs yypVr
+
 " comment line
 nnoremap ,c :s/^/# /<CR>
 vnoremap ,c :'<,'>s/^/# /<CR>
