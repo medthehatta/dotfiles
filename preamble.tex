@@ -7,13 +7,21 @@
 \usepackage{cite}     %% BibTeX
 \usepackage[final]{pdfpages}  %% i don't remember what this is for
 
+%% OPTIONAL FILE TO READ IN AT END OF PREAMBLE
+\newcommand{\subpreamble}{hwdef.tex}
+
 %% DOCUTILS ROLES FOR USING BIBTEX IN RST
 \newcommand{\DUrolebib}{\cite}
 \newcommand{\DUrolereferences}{\placebibliography}
 \newcommand{\placebibliography}[1]{\bibliography{#1}\bibliographystyle{plain}}
 
+%% DOCUTILS ROLES FOR NEW PAGES
+%% THIS IS SO FREAKING HIDEOUS
+\newcommand{\DUrolenewpage}{\mynewpage}
+\newcommand{\mynewpage}[1]{\newpage}
+
 %% UNITS SHOULD NOT BE SLANTED IF TYPESET IN MATH MODE
-\newcommand{\unt}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand{\unt}[1]{\ensuremath{\,\mathrm{#1}}}
 
 %% HANDY COMMAND FOR INCLUDING MATRICES
 \newcommand{\mat}[1]{\ensuremath{ \left[ \begin{array}{cccccccccccccccccccc} #1\\ \end{array} \right] }}
@@ -33,8 +41,8 @@
 \newcommand{\dxt}[1]{\tddt{#1}{x}}
 
 %% I PREFER BOLD VECTORS WHEN POSSIBLE
-\newcommand{\vcg}[1]{\ensuremath{ \boldsymbol{#1} }} %greek
 \newcommand{\vc}[1]{\ensuremath{ \mathbf{#1} }} %latin
+\newcommand{\vcg}[1]{\ensuremath{ \boldsymbol{#1} }} %greek
 
 %% NABLA IS A STUPID NAME
 \newcommand{\del}{\nabla}
@@ -42,8 +50,13 @@
 %% 1/(STUFF) IS SO COMMON
 \newcommand{\recip}[1]{\ensuremath{ \frac{1}{#1} }}
 
-%% REQUIRE THE HOMEWORK DEFINITION
-\input{hwdef.tex}
+%% READ THE HOMEWORK DEFINITION
+\IfFileExists{\subpreamble}{
+        \input{\subpreamble}
+}{
+        \newcommand{\hwAuthor}{}
+        \newcommand{\hwAssignment}{}
+}
 
 %% SET UP THE FANCY HEADERS (fancyhdr)
 \pagestyle{fancy}
