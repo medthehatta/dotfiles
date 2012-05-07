@@ -11,6 +11,7 @@ alias x='exit'
 alias off='sudo shutdown -h now'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias r='rox .' #open rox-filer
 
 # Some locale stuff
 export PS1='\t$ '
@@ -28,8 +29,9 @@ export dfrpglogs='med@st0rage.org:/home/med/public_html/dfrpg-logs'
 #fasd, for dealing with recent files
 eval "$(fasd --init auto)"
 alias v='f -e vim'
-alias j='z' # z is the default "cd" action in fast now
+alias j='z' # z is the default "cd" action in fasd now
 alias o='a -e xdg-open'
 alias l='d -e ls'
+alias rj='z -e rox'
 
 
