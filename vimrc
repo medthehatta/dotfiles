@@ -74,5 +74,10 @@ autocmd BufEnter * silent! lcd %:p:h "change into
 " Sage notebooks are essentially python
 autocmd BufRead,BufNewFile *.sage set filetype=python
 
+" Macros for homework editing
+" copy last math
+nnoremap gxm ?.. math<cr>Vj/\n\n<cr>y`^p
+" make last equal sign an aligned equal
+nnoremap gx= ?=<cr>a&<esc>`^
 
 
