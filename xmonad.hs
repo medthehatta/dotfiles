@@ -92,8 +92,18 @@ myKeyMapping = [
 	       , ("M-x", inNamedScreen "scratchpad" "")
 	       , ("M-u", inNamedScreen "general" "-c ~/dotfiles/general-scrc")
 	       , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
-	       , ("M-w", inTerm "sudo wifi-select wlan0") 
-	       , ("M-S-w", inTerm "sudo netcfg -a") 
+	       , ("M-w", inTerm "sudo wifi-select") 
+
+               -- Some random launchers
+               , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
+               , ("M-p l", spawn "~/scripts/toggle-suspend-lock.sh")
+	       , ("M-S-f f", spawn "chromium --incognito")
+	       , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
+	       , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
+               , ("M-S-e n", inTerm "~/scripts/catnotes.sh ~/ref/notes")
+	       , ("M-e r", spawn "~/scripts/mknotes.sh ~/re/notes")
+               , ("M-S-e r", inTerm "~/scripts/catnotes.sh ~/re/notes")
+	       , ("M-e t", inTerm "vim `mktemp` ")
 
 	       -- Prompts: Search, manpages, web browse, or edit 
 	       , ("M-g", S.promptSearch myXPConfig S.google) 
@@ -101,12 +111,8 @@ myKeyMapping = [
 	       , ("M-<F1>", manPrompt myXPConfig) 
 	       , ("M-d", AL.launchApp myXPConfig $ "surfraw -browser=chromium")
 	       , ("M-f", AL.launchApp myXPConfig $ "chromium") 
-	       , ("M-S-f f", spawn "chromium --incognito")
-	       , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
-	       , ("M-e e", AL.launchApp myXPConfig $ myScreenEx "fasd -e vim ")
-	       , ("M-e t", inTerm "vim `mktemp` ")
-	       , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
-	       , ("M-e r", spawn "~/scripts/mknotes.sh ~/re/notes")
+	       , ("M-e e", AL.launchApp myXPConfig $ myScreenEx "fasd -fe vim ")
+
 	       -- Tags:
 	       , ("M-t", tagPrompt myXPConfig (\s -> focusUpTaggedGlobal s))  --raise
 	       , ("M-S-t", tagPrompt myXPConfig (\s -> withFocused (addTag s)))
