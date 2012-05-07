@@ -6,6 +6,7 @@
 \usepackage{listings} %% for including code listing; looks better than 'verbatim'
 \usepackage{cite}     %% BibTeX
 \usepackage[final]{pdfpages}  %% i don't remember what this is for
+\usepackage{lscape}   %% allows landscape pages in the middle of a document
 
 %% OPTIONAL FILE TO READ IN AT END OF PREAMBLE
 \newcommand{\subpreamble}{hwdef.tex}
@@ -14,11 +15,6 @@
 \newcommand{\DUrolebib}{\cite}
 \newcommand{\DUrolereferences}{\placebibliography}
 \newcommand{\placebibliography}[1]{\bibliography{#1}\bibliographystyle{plain}}
-
-%% DOCUTILS ROLES FOR NEW PAGES
-%% THIS IS SO FREAKING HIDEOUS
-\newcommand{\DUrolenewpage}{\mynewpage}
-\newcommand{\mynewpage}[1]{\newpage}
 
 %% UNITS SHOULD NOT BE SLANTED IF TYPESET IN MATH MODE
 \newcommand{\unt}[1]{\ensuremath{\,\mathrm{#1}}}
@@ -50,10 +46,11 @@
 %% 1/(STUFF) IS SO COMMON
 \newcommand{\recip}[1]{\ensuremath{ \frac{1}{#1} }}
 
-%% READ THE HOMEWORK DEFINITION
+%% READ THE "SUB-PREAMBLE" (IF IT EXISTS)
 \IfFileExists{\subpreamble}{
         \input{\subpreamble}
 }{
+        %% IF IT DOES NOT EXIST, SET DEFAULTS
         \newcommand{\hwAuthor}{}
         \newcommand{\hwAssignment}{}
 }
@@ -62,9 +59,9 @@
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-\fancyhead[L]{\hwAuthor}	% set in hwdef.tex
-\fancyhead[C]{\hwAssignment}	% set in hwdef.tex
-\fancyhead[R]{\thepage}		% set in hwdef.tex
+\fancyhead[L]{\hwAuthor}	% set in subpreamble (hwdef.tex)
+\fancyhead[C]{\hwAssignment}	% set in subpreamble (hwdef.tex)
+\fancyhead[R]{\thepage}		% set in subpreamble (hwdef.tex)
 \headheight 25pt 
 \headsep 18pt
 
