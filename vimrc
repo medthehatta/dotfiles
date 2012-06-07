@@ -2,6 +2,8 @@ set autoindent          " when making a new line, start at the current indent le
 set autoread            " automatically reread a file if it was changed outside of vim
 set cmdheight=2         " by making the output line taller, you don't have to 'Enter to Continue' as often
 set expandtab           " turn tabs into spaces
+set tabstop=2           " 2 spaces per tab
+set shiftwidth=2        " 2 spaces per tab
 set hidden              " allow changing buffers without saving
 set hlsearch            " start with search highlighting on
 set ignorecase          " do case-insensitive search, but see 'set smartcase'
