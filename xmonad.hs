@@ -2,7 +2,6 @@ import XMonad
 
 import XMonad.Actions.Warp
 import qualified XMonad.Actions.Search as S
-import XMonad.Actions.TagWindows
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -10,16 +9,12 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeysP)
 
-import XMonad.Layout.ResizableTile
-import XMonad.Layout.Named
-import XMonad.Layout.NoBorders
-import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Tabbed
-
-import Data.Maybe(fromMaybe)
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Named
+import XMonad.Layout.ResizableTile
 
 import XMonad.Prompt
-import XMonad.Prompt.Man
 import XMonad.Prompt.AppLauncher as AL
 
 import qualified XMonad.StackSet as W
@@ -29,7 +24,7 @@ import Control.Monad
 
 
 
--- Set up the two basic bits: modifier key and terminal
+-- Set up the basic bits: modifier key, terminal
 myModMask = mod4Mask
 myTerminal = "urxvt"
 -- shortcut for constructing the command for opening a program in the terminal
@@ -39,9 +34,6 @@ inTerm cmd = spawn $ myTerminalEx cmd
 -- (named screen)
 myNamedScreenEx name cmd = myTerminalEx "screen -U -d -R -S " ++ name ++ " " ++ cmd
 inNamedScreen name cmd = spawn $ myNamedScreenEx name cmd 
--- (default screen)
-myScreenEx = myNamedScreenEx "launch"
-inScreen cmd = spawn $ myScreenEx cmd
 
 
 
@@ -49,12 +41,12 @@ inScreen cmd = spawn $ myScreenEx cmd
 myLayout = avoidStruts $ smartBorders $ myTiled ||| myTabbed
     where
         myTiled = named "Tall" (ResizableTall 1 (3/100) (1/2) [])
-	myTabbed = named "Tabs" (simpleTabbed)
+        myTabbed = named "Tabs" (simpleTabbed)
 
 
 
 -- Manage hook allowing for automatic dzen gap handling 
-myManageHook = composeAll $ [manageDocks, manageHook defaultConfig] 
+myManageHook = manageDocks <+> manageHook defaultConfig
 
 
 
@@ -69,14 +61,7 @@ dzenStatusBar = "dzen2 -fn -*-cure-*-*-*-*-*-*-*-*-*-*-*-* -h 11 -ta l -w 150 -x
 myPP h = defaultPP { ppOutput = hPutStrLn h
                    , ppSep    = "  |  "
                    , ppLayout = id 
-	           , ppTitle  = (\_->"") }
-
-
-
-
--- Set up the workspace names:
-myWorkspaces = ["1","2","3","4","5","6","7","8","9"]
-
+      	           , ppTitle  = (\_->"") }
 
 
 
@@ -86,47 +71,39 @@ myKeyMapping = [
 	       ("M-v", spawn "rox ~")
 	       , ("M-S-v", spawn "rox ~/Downloads")
 
-               -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi
+         -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi
 	       , ("M-S-x", spawn myTerminal) 
-               , ("M-S-p", AL.launchApp myXPConfig $ myTerminalEx "screen -U -d -R -S ")
+         , ("M-S-p", AL.launchApp myXPConfig $ myTerminalEx "screen -U -d -R -S ")
 	       , ("M-x", inNamedScreen "scratchpad" "")
 	       , ("M-u", inNamedScreen "general" "-c ~/dotfiles/general-scrc")
 	       , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
 	       , ("M-w", inTerm "sudo wifi-select") 
 
-               -- Some random launchers
-               , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
-               , ("M-p l", spawn "~/scripts/toggle-suspend-lock.sh")
+         -- Some random launchers
+         , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
+         , ("M-p l", spawn "~/scripts/toggle-suspend-lock.sh")
 	       , ("M-S-f f", spawn "chromium --incognito")
 	       , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
 	       , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
-               , ("M-S-e n", inTerm "~/scripts/catnotes.sh ~/ref/notes")
+         , ("M-S-e n", inTerm "~/scripts/catnotes.sh ~/ref/notes")
 	       , ("M-e r", spawn "~/scripts/mknotes.sh ~/re/notes")
-               , ("M-S-e r", inTerm "~/scripts/catnotes.sh ~/re/notes")
+         , ("M-S-e r", inTerm "~/scripts/catnotes.sh ~/re/notes")
 	       , ("M-e t", inTerm "vim `mktemp` ")
 
-	       -- Prompts: Search, manpages, web browse, or edit 
+	       -- Prompts: Search, web browse, or edit 
 	       , ("M-g", S.promptSearch myXPConfig S.google) 
 	       , ("M-S-g", S.selectSearch S.google)
-	       , ("M-<F1>", manPrompt myXPConfig) 
-	       , ("M-d", AL.launchApp myXPConfig $ "surfraw -browser=chromium")
 	       , ("M-f", AL.launchApp myXPConfig $ "chromium") 
-	       , ("M-e e", AL.launchApp myXPConfig $ myScreenEx "fasd -fe vim ")
-
-	       -- Tags:
-	       , ("M-t", tagPrompt myXPConfig (\s -> focusUpTaggedGlobal s))  --raise
-	       , ("M-S-t", tagPrompt myXPConfig (\s -> withFocused (addTag s)))
+	       , ("M-e e", AL.launchApp myXPConfig $ myTerminalEx "fasd -fe vim ")
 
 	       -- Refresh statusbar if I want
 	       , ("M-r", spawn "/bin/bash ~/scripts/go_status.sh")
-	       , ("M-S-r", inTerm "sudo ntpdate tick.ucla.edu")
 
 	       -- XMMS2
 	       , ("M-b l", spawn "nyxmms2 next")
 	       , ("M-b h", spawn "nyxmms2 prev")
 	       , ("M-b j", spawn "nyxmms2 toggle")
 	       , ("M-b k", spawn "nyxmms2 stop")
-	       , ("M-b d", inTerm "/usr/bin/python2 ~/scripts/gsdl.py")
 
 	       -- Window management
 	       , ("M-o", windows W.focusMaster) 
@@ -135,14 +112,8 @@ myKeyMapping = [
 	       , ("M-s", withFocused $ windows . W.sink) 
 	       , ("M-c", kill) 
 	       , ("M-m", banish LowerRight) -- ratpoison-like cursor banish
+         , ("M-p s", sendMessage ToggleStruts) -- toggle struts
 	       ]
-	       ++
-	       [ (prefixMasks ++ "M-" ++ [key], action tag)
-	       		| (tag, key) <- zip myWorkspaces "123456789"
-			, (prefixMasks, action) <- [ ("", windows . W.view)
-						   , ("S-", windows . W.shift) ]
-	       ]
-
 
 
 
