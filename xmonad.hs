@@ -38,10 +38,11 @@ inNamedScreen name cmd = spawn $ myNamedScreenEx name cmd
 
 
 -- Layouts
-myLayout = avoidStruts $ smartBorders $ myTiled ||| myTabbed
+myLayout = avoidStruts $ smartBorders $ myTiled ||| myTabbed ||| myFull
     where
         myTiled = named "Tall" (ResizableTall 1 (3/100) (1/2) [])
         myTabbed = named "Tabs" (simpleTabbed)
+        myFull = named "Full" (Full)
 
 
 
