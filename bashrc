@@ -35,4 +35,7 @@ alias o='a -e xdg-open'
 alias l='d -e ls'
 alias rj='z -e rox'
 
+#dropbox aliases
+alias drop1='HOME=/home/med/.dropbox1 dropbox'
+alias drop2='HOME=/home/med/.dropbox2 dropbox'
 
