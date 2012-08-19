@@ -75,6 +75,8 @@ autocmd BufEnter * silent! lcd %:p:h "change into
 
 " Sage notebooks are essentially python
 autocmd BufRead,BufNewFile *.sage set filetype=python
+" Arduino files are essentially C++
+autocmd BufRead,BufNewFile *.ino set filetype=cpp
 
 " Macros for homework editing
 " copy last math
