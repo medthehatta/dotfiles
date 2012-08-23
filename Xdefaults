@@ -1,4 +1,4 @@
-urxvt*termName: rxvt-256color
+urxvt*termName: rxvt-unicode
 urxvt*scrollBar: false
 urxvt*saveLines: 20000
 urxvt*font: -*-dina-medium-r-*-*-*-*-*-*-*-*-*-*
