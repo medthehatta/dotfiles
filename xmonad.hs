@@ -76,13 +76,12 @@ myKeyMapping = [
 	       , ("M-S-x", spawn myTerminal) 
          , ("M-S-p", AL.launchApp myXPConfig $ myTerminalEx "screen -U -d -R -S ")
 	       , ("M-x", inNamedScreen "scratchpad" "")
-	       , ("M-u", inNamedScreen "general" "-c ~/dotfiles/general-scrc")
 	       , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
 	       , ("M-w", inTerm "sudo wifi-select") 
 
          -- Some random launchers
          , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
-         , ("M-p l", spawn "~/scripts/toggle-suspend-lock.sh")
+         , ("M-p l", spawn "lsprepost")
 	       , ("M-S-f f", spawn "chromium --incognito")
 	       , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
 	       , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
@@ -95,7 +94,8 @@ myKeyMapping = [
 	       , ("M-g", S.promptSearch myXPConfig S.google) 
 	       , ("M-S-g", S.selectSearch S.google)
 	       , ("M-f", AL.launchApp myXPConfig $ "chromium") 
-	       , ("M-e e", AL.launchApp myXPConfig $ myTerminalEx "fasd -fe vim ")
+	       , ("M-e e", AL.launchApp myXPConfig $ myTerminalEx "vim ")
+	       , ("M-S-e e", AL.launchApp myXPConfig $ myTerminalEx "sudo vim -u /home/med/.vimrc")
 
 	       -- Refresh statusbar if I want
 	       , ("M-r", spawn "/bin/bash ~/scripts/go_status.sh")
@@ -114,7 +114,8 @@ myKeyMapping = [
 	       , ("M-c", kill) 
 	       , ("M-m", banish LowerRight) -- ratpoison-like cursor banish
          , ("M-p s", sendMessage ToggleStruts) -- toggle struts
-	       ]
+	       ] ++
+         [ (shiftMask ++ "M-" ++ key, action key) | key <- (map show [1..9]), (shiftMask, action) <- [ ("", windows . W.view), ("S-", windows . W.shift) ] ]
 
 
 
