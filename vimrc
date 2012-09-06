@@ -73,6 +73,9 @@ syntax on
 " Automatically change into the file's local directory (but leave it on quit)
 autocmd BufEnter * silent! lcd %:p:h "change into 
 
+" Allow saving of files with sudo when I forgot to sudo vim
+cnoremap w!! %!sudo tee > /dev/null %
+
 " Sage notebooks are essentially python
 autocmd BufRead,BufNewFile *.sage set filetype=python
 " Arduino files are essentially C++
