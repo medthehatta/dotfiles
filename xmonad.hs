@@ -95,7 +95,8 @@ myKeyMapping = [
 	       , ("M-g", S.promptSearch myXPConfig S.google) 
 	       , ("M-S-g", S.selectSearch S.google)
 	       , ("M-f", AL.launchApp myXPConfig $ "chromium") 
-	       , ("M-e e", AL.launchApp myXPConfig $ myTerminalEx "fasd -fe vim ")
+	       , ("M-e e", AL.launchApp myXPConfig $ myTerminalEx "vim ")
+	       , ("M-S-e e", AL.launchApp myXPConfig $ myTerminalEx "sudo vim -u /home/med/.vimrc")
 
 	       -- Refresh statusbar if I want
 	       , ("M-r", spawn "/bin/bash ~/scripts/go_status.sh")
@@ -114,7 +115,8 @@ myKeyMapping = [
 	       , ("M-c", kill) 
 	       , ("M-m", banish LowerRight) -- ratpoison-like cursor banish
          , ("M-p s", sendMessage ToggleStruts) -- toggle struts
-	       ]
+	       ] ++
+         [ (shiftMask ++ "M-" ++ key, action key) | key <- (map show [1..9]), (shiftMask, action) <- [ ("", windows . W.view), ("S-", windows . W.shift) ] ]
 
 
 

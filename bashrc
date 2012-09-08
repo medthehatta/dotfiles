@@ -15,7 +15,7 @@ alias r='rox'
 alias stor='ssh -t med@ssh.st0rage.org screen -rd'
 
 # Some locale stuff
-export PS1='\t$ '
+export PS1='\!$ '
 export TZ='America/New_York'
 
 # For dealing with commonly used remote hosts
