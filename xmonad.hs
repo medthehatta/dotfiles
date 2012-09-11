@@ -74,14 +74,15 @@ myKeyMapping = [
 
          -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi
 	       , ("M-S-x", spawn myTerminal) 
-         , ("M-S-p", AL.launchApp myXPConfig $ myTerminalEx "screen -U -d -R -S ")
+         , ("M-S-p", AL.launchApp myXPConfig $ "~/scripts/term_in_dir.sh")
 	       , ("M-x", inNamedScreen "scratchpad" "")
 	       , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
 	       , ("M-w", inTerm "sudo wifi-select") 
 
          -- Some random launchers
          , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
-         , ("M-p l", spawn "lsprepost")
+         , ("M-p p", spawn "lsprepost")
+         , ("M-p l", spawn "slock")
 	       , ("M-S-f f", spawn "chromium --incognito")
 	       , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
 	       , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
