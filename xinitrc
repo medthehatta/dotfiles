@@ -9,6 +9,9 @@ xset +fp /usr/share/fonts/misc/
 # I shouldn't have to do this...
 xrdb -merge ~/.Xdefaults
 
+# GAWD I HATE THE BEEP
+xset -b
+
 # This lets me edit chromium textfields with vim
 /usr/bin/perl ~/scripts/edit-server.pl &
 

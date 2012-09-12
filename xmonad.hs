@@ -76,13 +76,12 @@ myKeyMapping = [
 	       , ("M-S-x", spawn myTerminal) 
          , ("M-S-p", AL.launchApp myXPConfig $ myTerminalEx "screen -U -d -R -S ")
 	       , ("M-x", inNamedScreen "scratchpad" "")
-	       , ("M-u", inNamedScreen "general" "-c ~/dotfiles/general-scrc")
 	       , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
 	       , ("M-w", inTerm "sudo wifi-select") 
 
          -- Some random launchers
          , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
-         , ("M-p l", spawn "~/scripts/toggle-suspend-lock.sh")
+         , ("M-p l", spawn "lsprepost")
 	       , ("M-S-f f", spawn "chromium --incognito")
 	       , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
 	       , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
