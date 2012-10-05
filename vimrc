@@ -17,6 +17,7 @@ set showmatch           " when a bracket is inserted, briefly flash the one it m
 set showmode            " in the status line, show the mode we're in
 set smartcase           " when searching, only do case-sensitive searches if there's a capital letter
 set wildmode=list:longest,full          " how to display completion lists
+set gdefault            " when replacing, assume global replacement
 
 
 " toggle search highlighting
