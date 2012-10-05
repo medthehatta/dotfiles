@@ -87,8 +87,10 @@ myKeyMapping = [
 	       , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
 	       , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
          , ("M-S-e n", inTerm "~/scripts/catnotes.sh ~/ref/notes")
+         , ("M-C-e n", inTerm "vim ~/ref/notes/$(ls --sort=time ~/ref/notes | head -n1)")
 	       , ("M-e r", spawn "~/scripts/mknotes.sh ~/re/notes")
          , ("M-S-e r", inTerm "~/scripts/catnotes.sh ~/re/notes")
+         , ("M-C-e r", inTerm "vim ~/re/notes/$(ls --sort=time ~/re/notes | head -n1)")
 	       , ("M-e t", inTerm "vim `mktemp` ")
 
 	       -- Prompts: Search, web browse, or edit 
