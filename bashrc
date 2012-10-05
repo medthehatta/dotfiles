@@ -26,6 +26,7 @@ alias tucw='ssh -t $tussh vim public_html/coursework.htm'
 export enote='medthehatta.6e7a2@m.evernote.com'
 export st0r='med@ssh.st0rage.org'
 export dfrpglogs='med@st0rage.org:/home/med/public_html/dfrpg-logs'
+alias albert='ssh -t tud48344@astro.temple.edu ssh -t Albert@155.247.51.165 /bin/bash --rcfile /home/Med/.bashrc'
 
 #fasd, for dealing with recent files
 eval "$(fasd --init auto)"
