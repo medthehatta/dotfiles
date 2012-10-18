@@ -18,6 +18,8 @@ set showmode            " in the status line, show the mode we're in
 set smartcase           " when searching, only do case-sensitive searches if there's a capital letter
 set wildmode=list:longest,full          " how to display completion lists
 set gdefault            " when replacing, assume global replacement
+set wrap                " wrap words...
+set linebreak           " ...so that lines only break at 'breakable' characters
 
 
 " toggle search highlighting
