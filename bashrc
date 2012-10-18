@@ -32,7 +32,7 @@ alias albert='ssh -t tud48344@astro.temple.edu ssh -t Albert@155.247.51.165 /bin
 eval "$(fasd --init auto)"
 alias v='f -e vim'
 alias j='z' # z is the default "cd" action in fasd now
-alias o='a -e xdg-open'
+alias o='a -e mimeo'
 alias l='d -e ls'
 alias rj='z -e rox'
 
