@@ -48,7 +48,7 @@ myLayout = avoidStruts $ smartBorders $ myTiled ||| myTabbed ||| myFull
 
 -- Manage hook allowing for automatic dzen gap handling 
 myManageHook = composeAll
-  [ className =? "bashrun2-run-dialog" --> doFloat 
+  [ resource =? "bashrun2-run-dialog" --> doFloat 
   , manageDocks 
   ] <+> manageHook defaultConfig
 
@@ -76,10 +76,10 @@ myKeyMapping = [
           , ("M-S-v", spawn "rox ~/Downloads")
 
           -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi
-          , ("M-S-x", spawn "urxvt") 
-          , ("M-p", spawn "bashrun2")
-          , ("M-S-p", AL.launchApp myXPConfig $ "~/scripts/term_in_dir.sh")
           , ("M-x", inNamedScreen "scratchpad" "")
+          , ("M-d", spawn myTerminal)
+          , ("M-u", spawn "bashrun2")
+          , ("M-S-p", AL.launchApp myXPConfig $ "~/scripts/term_in_dir.sh")
           , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
           , ("M-w", inTerm "sudo wifi-select") 
 
