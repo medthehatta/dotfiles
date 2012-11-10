@@ -1,0 +1,5 @@
+clear Lock
+keycode 66 = Super_L
+keycode 135 = Multi_key
+
+
