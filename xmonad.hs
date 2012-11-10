@@ -73,7 +73,9 @@ myPP h = defaultPP { ppOutput = hPutStrLn h
 myKeyMapping = [ 
           -- File Browser:
           ("M-v", spawn "rox ~")
-          , ("M-S-v", spawn "rox ~/Downloads")
+          , ("M-S-v d", spawn "rox ~/Downloads")
+          , ("M-S-v v", spawn "rox /media/usb")
+          , ("M-S-v c", spawn "rox /media/usb2")
 
           -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi
           , ("M-x", inNamedScreen "scratchpad" "")
@@ -102,6 +104,11 @@ myKeyMapping = [
           , ("M-f", AL.launchApp myXPConfig $ "chromium") 
           , ("M-e e", AL.launchApp myXPConfig $ myTerminalEx "vim ")
           , ("M-S-e e", AL.launchApp myXPConfig $ myTerminalEx "sudo vim -u /home/med/.vimrc")
+
+          -- Dmenu for recent files
+          , ("M-y y", spawn "mimeo $(fasd -l | tac | dmenu -l 10 \"$@\"")
+          , ("M-y f", spawn "mimeo $(fasd f -l | tac | dmenu -l 10 \"$@\"")
+          , ("M-y d", spawn "mimeo $(fasd d -l | tac | dmenu -l 10 \"$@\"")
 
           -- Refresh statusbar if I want
           , ("M-r", spawn "/bin/bash ~/scripts/go_status.sh")
