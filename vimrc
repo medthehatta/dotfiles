@@ -40,6 +40,9 @@ nnoremap K o<esc>
 " in ReST, 'underline' the section
 nnoremap gs yypVr
 
+" yank line without newline at end
+cnoremap Y y$
+
 " comment line
 nnoremap ,c :s/^/# /<CR>
 vnoremap ,c :'<,'>s/^/# /<CR>
@@ -62,10 +65,6 @@ inoremap <C-e> <C-r>
 noremap <f5> :!./view<CR>               
 noremap <f6> :!./upload<CR>
 noremap <f7> :!./build<CR><CR>
-
-" Easy switching between buffers
-map <left> :bp!<CR> 
-map <right> :bn!<CR> 
 
 colorscheme elflord     " Dark colorscheme
 
