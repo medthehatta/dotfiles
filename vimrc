@@ -63,10 +63,6 @@ noremap <f5> :!./view<CR>
 noremap <f6> :!./upload<CR>
 noremap <f7> :!./build<CR><CR>
 
-" Easy switching between buffers
-map <left> :bp!<CR> 
-map <right> :bn!<CR> 
-
 colorscheme elflord     " Dark colorscheme
 
 " Syntax highlighting and filetype-specific goodness
