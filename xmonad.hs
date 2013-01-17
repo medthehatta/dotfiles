@@ -88,6 +88,8 @@ myKeyMapping = [
           -- Some random launchers
           , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
           , ("M-p l", spawn "slock")
+          , ("M-p i", inTerm "ssh -t med@ssh.st0rage.org screen -Rd")
+          , ("M-p a", inTerm "ssh -t med@mancer.in screen -Rd")
           , ("M-S-f f", spawn "chromium --incognito")
           , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
           , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
@@ -106,9 +108,9 @@ myKeyMapping = [
           , ("M-S-e e", AL.launchApp myXPConfig $ myTerminalEx "sudo vim -u /home/med/.vimrc")
 
           -- Dmenu for recent files
-          , ("M-y y", spawn "mimeo $(fasd -l | tac | dmenu -l 10 \"$@\"")
-          , ("M-y f", spawn "mimeo $(fasd f -l | tac | dmenu -l 10 \"$@\"")
-          , ("M-y d", spawn "mimeo $(fasd d -l | tac | dmenu -l 10 \"$@\"")
+          , ("M-y y", spawn "mimeo $(fasd -l | tac | dmenu -l 10)")
+          , ("M-y f", spawn "mimeo $(fasd f -l | tac | dmenu -l 10)")
+          , ("M-y d", spawn "mimeo $(fasd d -l | tac | dmenu -l 10)")
 
           -- Refresh statusbar if I want
           , ("M-r", spawn "/bin/bash ~/scripts/go_status.sh")
