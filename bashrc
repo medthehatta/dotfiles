@@ -8,14 +8,14 @@ alias ls='ls --color=auto --sort=time'
 alias cls='clear && echo -n "@" && pwd && ls'
 alias psu='ps -U $USER -o pid,cmd'
 alias x='exit'
-alias off='sudo shutdown -h now'
+#alias off='sudo shutdown -h now'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias r='rox' 
-alias stor='ssh -t med@ssh.st0rage.org screen -rd'
+#alias r='rox' 
+#alias stor='ssh -t med@ssh.st0rage.org screen -rd'
 
 # Some locale stuff
-export PS1='\!$ '
+export PS1='mancer-\!$ '
 export TZ='America/New_York'
 
 # For dealing with commonly used remote hosts
@@ -29,14 +29,14 @@ export dfrpglogs='med@st0rage.org:/home/med/public_html/dfrpg-logs'
 alias albert='ssh -t tud48344@astro.temple.edu ssh -t Albert@155.247.51.165 /bin/bash --rcfile /home/Med/.bashrc'
 
 #fasd, for dealing with recent files
-eval "$(fasd --init auto)"
-alias v='f -e vim'
-alias j='z' # z is the default "cd" action in fasd now
-alias o='a -e mimeo'
-alias l='d -e ls'
-alias rj='z -e rox'
+#eval "$(fasd --init auto)"
+#alias v='f -e vim'
+#alias j='z' # z is the default "cd" action in fasd now
+#alias o='a -e mimeo'
+#alias l='d -e ls'
+#alias rj='z -e rox'
 
 #dropbox aliases
-alias drop1='HOME=/home/med/.dropbox1 dropbox'
-alias drop2='HOME=/home/med/.dropbox2 dropbox'
+#alias drop1='HOME=/home/med/.dropbox1 dropbox'
+#alias drop2='HOME=/home/med/.dropbox2 dropbox'
 
