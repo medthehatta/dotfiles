@@ -12,6 +12,7 @@ alias off='sudo shutdown -h now'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias r='rox' 
+alias g='git'
 alias stor='ssh -t med@ssh.st0rage.org screen -rd'
 
 # Some locale stuff
