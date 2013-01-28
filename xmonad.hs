@@ -88,6 +88,8 @@ myKeyMapping = [
           -- Some random launchers
           , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
           , ("M-p l", spawn "slock")
+          , ("M-p i", inTerm "ssh -t med@ssh.st0rage.org screen -Rd")
+          , ("M-p a", inTerm "ssh -t med@mancer.in screen -Rd")
           , ("M-S-f f", spawn "chromium --incognito")
           , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
           , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
