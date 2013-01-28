@@ -1,9 +1,16 @@
+" Pathogen makes it easy to install vim plugins
+call pathogen#infect()
+call pathogen#helptags()
+
+" Preferences
 set autoindent          " when making a new line, start at the current indent level
+set copyindent          " copy the previous indentation level (doesn't this already happen?)
 set autoread            " automatically reread a file if it was changed outside of vim
 set cmdheight=2         " by making the output line taller, you don't have to 'Enter to Continue' as often
 set expandtab           " turn tabs into spaces
 set tabstop=2           " 2 spaces per tab
 set shiftwidth=2        " 2 spaces per tab
+set smarttab            " leading tabs use shiftwidth instead of tabstop
 set hidden              " allow changing buffers without saving
 set hlsearch            " start with search highlighting on
 set ignorecase          " do case-insensitive search, but see 'set smartcase'
@@ -21,7 +28,6 @@ set gdefault            " when replacing, assume global replacement
 set wrap                " wrap words...
 set linebreak           " ...so that lines only break at 'breakable' characters
 
-
 " toggle search highlighting
 nnoremap <Space> :set hlsearch!<CR>
 
@@ -34,19 +40,18 @@ noremap ; :
 " still use the semicolon functionality, but not the comma
 noremap , ;
 
+" In fact, the comma will be our new leader
+let mapleader=","
+
+" window-based movement, not line-based
+nnoremap j gj
+nnoremap k gk
+
 " open a line below
 nnoremap K o<esc>
 
 " in ReST, 'underline' the section
 nnoremap gs yypVr
-
-" comment line
-nnoremap ,c :s/^/# /<CR>
-vnoremap ,c :'<,'>s/^/# /<CR>
-
-" uncomment line
-nnoremap ,u :s/^# //<CR>
-vnoremap ,u :'<,'>s/^# //<CR>
 
 " quick way to leave insert mode (part one)
 inoremap kj <esc>
@@ -77,6 +82,8 @@ cnoremap w!! %!sudo tee > /dev/null %
 
 " Sage notebooks are essentially python
 autocmd BufRead,BufNewFile *.sage set filetype=python
+" scons SConstruct files are literally python
+autocmd BufRead,BufNewFile SConstruct set filetype=python
 " Arduino files are essentially C++
 autocmd BufRead,BufNewFile *.ino set filetype=cpp
 
