@@ -17,6 +17,7 @@ alias stor='ssh -t med@ssh.st0rage.org screen -rd'
 # Some locale stuff
 export PS1='\!$ '
 export TZ='America/New_York'
+export EDITOR='vim'
 
 # For dealing with commonly used remote hosts
 export tussh='tud48344@astro.temple.edu'
@@ -36,7 +37,7 @@ alias l='d -e ls'
 alias rj='z -e rox'
 
 #git
-alias gc='git commit' #gc is a slightly sketchy name
+alias g='git'
 
 #dropbox aliases
 alias drop1='HOME=/home/med/.dropbox1 dropbox'
