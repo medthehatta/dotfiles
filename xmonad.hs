@@ -99,6 +99,7 @@ myKeyMapping = [
           , ("M-S-e r", inTerm "~/scripts/catnotes.sh ~/re/notes")
           , ("M-C-e r", inTerm "vim ~/re/notes/$(ls --sort=time ~/re/notes | head -n1)")
           , ("M-e t", inTerm "vim `mktemp` ")
+          , ("M-p w", spawn "virtualbox --startvm WinXP")
 
           -- Prompts: Search, web browse, or edit 
           , ("M-g", S.promptSearch myXPConfig S.google) 
