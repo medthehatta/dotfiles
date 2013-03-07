@@ -93,4 +93,9 @@ nnoremap gxm ?.. math<cr>Vj/\n\n<cr>y`^p
 " make last equal sign an aligned equal
 nnoremap gx= ?=<cr>a&<esc>`^
 
+" Plugin settings
+" EasyMotion
+let g:EasyMotion_leader_key='<Leader>'
+hi link EasyMotionTarget Type
+hi link EasyMotionShade  PreProc
 
