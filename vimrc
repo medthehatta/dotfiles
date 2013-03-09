@@ -1,3 +1,7 @@
+" Pathogen makes it easy to install vim plugins
+call pathogen#infect()
+call pathogen#helptags()
+
 set autoindent          " when making a new line, start at the current indent level
 set autoread            " automatically reread a file if it was changed outside of vim
 set cmdheight=2         " by making the output line taller, you don't have to 'Enter to Continue' as often
@@ -21,6 +25,8 @@ set gdefault            " when replacing, assume global replacement
 set wrap                " wrap words...
 set linebreak           " ...so that lines only break at 'breakable' characters
 
+set makeprg=scons       " I don't think I'm gonna use Makefiles anymore
+
 
 " toggle search highlighting
 nnoremap <Space> :set hlsearch!<CR>
@@ -33,6 +39,13 @@ noremap ; :
 
 " still use the semicolon functionality, but not the comma
 noremap , ;
+
+" leader will be comma
+let mapleader=","
+
+" window-based movement, not line-based
+nnoremap j gj
+nnoremap k gk
 
 " open a line below
 nnoremap K o<esc>
@@ -80,6 +93,8 @@ cnoremap w!! %!sudo tee > /dev/null %
 
 " Sage notebooks are essentially python
 autocmd BufRead,BufNewFile *.sage set filetype=python
+" SConstruct files are precisely python
+autocmd BufRead,BufNewFile SConstruct set filetype=python
 " Arduino files are essentially C++
 autocmd BufRead,BufNewFile *.ino set filetype=cpp
 
