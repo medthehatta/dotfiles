@@ -14,9 +14,10 @@ alias ...='cd ../..'
 alias r='rox' 
 alias g='git'
 alias stor='ssh -t med@ssh.st0rage.org screen -rd'
+alias rivlin="ssh -t $tussh ssh -t med@$(cat ~/ref/rivlin-ip) screen -Rd -S remote"
 
 # Some locale stuff
-export PS1='\!$ '
+export PS1='\n\!$ '
 export TZ='America/New_York'
 
 # For dealing with commonly used remote hosts
