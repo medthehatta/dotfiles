@@ -24,9 +24,6 @@ xmodmap ~/.xmodmap
 # Start my status bar
 /bin/bash ~/scripts/go_status.sh &
 
-# Start my dropboxen
-#HOME=/home/med/.dropbox1 dropbox start 
-#HOME=/home/med/.dropbox2 dropbox start 
 
 # If the external monitor is connected, turn it on
 if [ $(xrandr -q | grep VGA1 | cut -d' ' -f2) == 'connected' ]; then

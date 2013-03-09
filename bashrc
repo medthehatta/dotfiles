@@ -19,6 +19,7 @@ alias rivlin="ssh -t $tussh ssh -t med@$(cat ~/ref/rivlin-ip) screen -Rd -S remo
 # Some locale stuff
 export PS1='\n\!$ '
 export TZ='America/New_York'
+export EDITOR='vim'
 
 # For dealing with commonly used remote hosts
 export tussh='tud48344@astro.temple.edu'
@@ -27,7 +28,6 @@ export tuwork="${tuhome}/public_html/work"
 alias tucw='ssh -t $tussh vim public_html/coursework.htm'
 export enote='medthehatta.6e7a2@m.evernote.com'
 export st0r='med@ssh.st0rage.org'
-export dfrpglogs='med@st0rage.org:/home/med/public_html/dfrpg-logs'
 alias albert='ssh -t tud48344@astro.temple.edu ssh -t Albert@155.247.51.165 /bin/bash --rcfile /home/Med/.bashrc'
 
 #fasd, for dealing with recent files
@@ -37,6 +37,9 @@ alias j='z' # z is the default "cd" action in fasd now
 alias o='a -e mimeo'
 alias l='d -e ls'
 alias rj='z -e rox'
+
+#git
+alias g='git'
 
 #dropbox aliases
 alias drop1='HOME=/home/med/.dropbox1 dropbox'

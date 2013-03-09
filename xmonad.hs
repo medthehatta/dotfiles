@@ -41,7 +41,7 @@ inNamedScreen name cmd = spawn $ myNamedScreenEx name cmd
 myLayout = avoidStruts $ smartBorders $ myTiled ||| myTabbed ||| myFull
     where
         myTiled = named "Tall" (ResizableTall 1 (3/100) (1/2) [])
-        myTabbed = named "Tabs" (simpleTabbed)
+        myTabbed = named "Tabs" (simpleTabbedAlways)
         myFull = named "Full" (Full)
 
 
@@ -99,6 +99,7 @@ myKeyMapping = [
           , ("M-S-e r", inTerm "~/scripts/catnotes.sh ~/re/notes")
           , ("M-C-e r", inTerm "vim ~/re/notes/$(ls --sort=time ~/re/notes | head -n1)")
           , ("M-e t", inTerm "vim `mktemp` ")
+          , ("M-p w", spawn "virtualbox --startvm WinXP")
 
           -- Prompts: Search, web browse, or edit 
           , ("M-g", S.promptSearch myXPConfig S.google) 

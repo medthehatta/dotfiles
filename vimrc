@@ -2,12 +2,15 @@
 call pathogen#infect()
 call pathogen#helptags()
 
+" Preferences
 set autoindent          " when making a new line, start at the current indent level
+set copyindent          " copy the previous indentation level (doesn't this already happen?)
 set autoread            " automatically reread a file if it was changed outside of vim
 set cmdheight=2         " by making the output line taller, you don't have to 'Enter to Continue' as often
 set expandtab           " turn tabs into spaces
 set tabstop=2           " 2 spaces per tab
 set shiftwidth=2        " 2 spaces per tab
+set smarttab            " leading tabs use shiftwidth instead of tabstop
 set hidden              " allow changing buffers without saving
 set hlsearch            " start with search highlighting on
 set ignorecase          " do case-insensitive search, but see 'set smartcase'
@@ -40,7 +43,7 @@ noremap ; :
 " still use the semicolon functionality, but not the comma
 noremap , ;
 
-" leader will be comma
+" In fact, the comma will be our new leader
 let mapleader=","
 
 " window-based movement, not line-based
@@ -56,13 +59,6 @@ nnoremap gs yypVr
 " yank line without newline at end
 cnoremap Y y$
 
-" comment line
-nnoremap ,c :s/^/# /<CR>
-vnoremap ,c :'<,'>s/^/# /<CR>
-
-" uncomment line
-nnoremap ,u :s/^# //<CR>
-vnoremap ,u :'<,'>s/^# //<CR>
 
 " quick way to leave insert mode (part one)
 inoremap kj <esc>
@@ -78,6 +74,7 @@ inoremap <C-e> <C-r>
 noremap <f5> :!./view<CR>               
 noremap <f6> :!./upload<CR>
 noremap <f7> :!./build<CR><CR>
+
 
 colorscheme elflord     " Dark colorscheme
 
@@ -104,4 +101,9 @@ nnoremap gxm ?.. math<cr>Vj/\n\n<cr>y`^p
 " make last equal sign an aligned equal
 nnoremap gx= ?=<cr>a&<esc>`^
 
+" Plugin settings
+" EasyMotion
+let g:EasyMotion_leader_key='<Leader>'
+hi link EasyMotionTarget Type
+hi link EasyMotionShade  PreProc
 
