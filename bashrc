@@ -38,6 +38,7 @@ alias rj='z -e rox'
 
 #git
 alias g='git'
+alias clsg='clear && echo -n "@" && pwd && ls && echo && git branch && git status'
 
 #dropbox aliases
 alias drop1='HOME=/home/med/.dropbox1 dropbox'
