@@ -1,6 +1,7 @@
 import XMonad
 
 import XMonad.Actions.Warp
+import XMonad.Actions.CycleWS
 import qualified XMonad.Actions.Search as S
 
 import XMonad.Hooks.DynamicLog
@@ -75,7 +76,6 @@ myKeyMapping = [
           ("M-v", spawn "rox ~")
           , ("M-S-v d", spawn "rox ~/Downloads")
           , ("M-S-v v", spawn "rox /media/usb")
-          , ("M-S-v c", spawn "rox /media/usb2")
 
           -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi
           , ("M-x", inNamedScreen "scratchpad" "")
@@ -83,49 +83,37 @@ myKeyMapping = [
           , ("M-u", spawn "bashrun2")
           , ("M-S-p", AL.launchApp myXPConfig $ "~/scripts/term_in_dir.sh")
           , ("M-S-u", inTerm "vim ~/dotfiles/xmonad.hs") 
-          , ("M-w", inTerm "sudo wifi-select") 
+          , ("M-S-w", inTerm "sudo wifi-select") 
 
           -- Some random launchers
           , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
           , ("M-p l", spawn "slock")
-          , ("M-p i", inTerm "ssh -t med@ssh.st0rage.org screen -Rd")
-          , ("M-p a", inTerm "ssh -t med@mancer.in screen -Rd")
+          , ("M-p i", inTerm "ssh -t med@mancer.in screen -Rd")
           , ("M-S-f f", spawn "chromium --incognito")
           , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
+          , ("M-p w", spawn "virtualbox --startvm WinXP")
+
+          -- Take notes: either regular notes, or research notes (which I haven't done in ages :-p)
           , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
           , ("M-S-e n", inTerm "~/scripts/catnotes.sh ~/ref/notes")
           , ("M-C-e n", inTerm "vim ~/ref/notes/$(ls --sort=time ~/ref/notes | head -n1)")
           , ("M-e r", spawn "~/scripts/mknotes.sh ~/re/notes")
           , ("M-S-e r", inTerm "~/scripts/catnotes.sh ~/re/notes")
           , ("M-C-e r", inTerm "vim ~/re/notes/$(ls --sort=time ~/re/notes | head -n1)")
-          , ("M-e t", inTerm "vim `mktemp` ")
-          , ("M-p w", spawn "virtualbox --startvm WinXP")
 
           -- Prompts: Search, web browse, or edit 
           , ("M-g", S.promptSearch myXPConfig S.google) 
-          , ("M-S-g", S.selectSearch S.google)
           , ("M-f", AL.launchApp myXPConfig $ "chromium") 
           , ("M-e e", AL.launchApp myXPConfig $ myTerminalEx "vim ")
-          , ("M-S-e e", AL.launchApp myXPConfig $ myTerminalEx "sudo vim -u /home/med/.vimrc")
-
-          -- Dmenu for recent files
-          , ("M-y y", spawn "mimeo $(fasd -l | tac | dmenu -l 10 \"$@\"")
-          , ("M-y f", spawn "mimeo $(fasd f -l | tac | dmenu -l 10 \"$@\"")
-          , ("M-y d", spawn "mimeo $(fasd d -l | tac | dmenu -l 10 \"$@\"")
 
           -- Refresh statusbar if I want
           , ("M-r", spawn "/bin/bash ~/scripts/go_status.sh")
-
-          -- XMMS2
-          , ("M-b l", spawn "nyxmms2 next")
-          , ("M-b h", spawn "nyxmms2 prev")
-          , ("M-b j", spawn "nyxmms2 toggle")
-          , ("M-b k", spawn "nyxmms2 stop")
 
           -- Window management
           , ("M-o", windows W.focusMaster) 
           , ("M-S-o", windows W.swapMaster) 
           , ("M-i", sendMessage NextLayout) 
+          , ("M-n", nextScreen)
           , ("M-s", withFocused $ windows . W.sink) 
           , ("M-c", kill) 
           , ("M-m", banish LowerRight) -- ratpoison-like cursor banish
