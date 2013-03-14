@@ -62,7 +62,7 @@ myXPConfig = defaultXPConfig { position = Top }
 
 -- Configure the dzen statusbar:
 --  How dzen should be run, and how the loghook pretty printer should work
-dzenStatusBar = "dzen2 -fn -*-cure-*-*-*-*-*-*-*-*-*-*-*-* -h 11 -ta l -w 150 -x 0 -tw 100 -p" 
+dzenStatusBar = "dzen2 -fn cure -h 11 -ta l -w 200 -x 0 -tw 200 -p" 
 myPP h = defaultPP { ppOutput = hPutStrLn h
                    , ppSep    = "  |  "
                    , ppLayout = id 
