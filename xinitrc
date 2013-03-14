@@ -43,6 +43,9 @@ xrandr --output DVI1 --mode 1280x1024 --left-of VGA1
 # xflux changes the color temperature of my screen based on the time of day
 #xflux -z 19462 -k 4000
 
+# Bashrun takes forever on first load, so start now
+bashrun2 hide
+
 # XMonad FTW
 exec xmonad
 
