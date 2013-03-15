@@ -1,0 +1,39 @@
+[user]
+	name = Med Mahmoud
+	email = medthehatta@gmail.com
+[core]
+	editor = vim
+[merge]
+	conflictstyle = diff3
+	tool = meld
+
+[alias]
+  st = status -s
+  ci = commit
+  cm = commit -m
+  co = checkout
+  cb = checkout -b 
+  br = branch
+  df = diff
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
+  pu = push
+  fe = fetch
+
+[color]
+  ui = auto
+[color "branch"]
+  current = green bold
+  local = yellow
+  remote = red
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow bold
+  changed = green bold
+  untracked = red
+
+[push]
+	default = current
