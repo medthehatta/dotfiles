@@ -78,7 +78,7 @@ myKeyMapping = [
           , ("M-S-v v", spawn "rox /media/usb")
 
           -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi
-          , ("M-x", inNamedScreen "scratchpad" "")
+          , ("M-x", inTerm "tmux new -A -s scratch")
           , ("M-d", spawn myTerminal)
           , ("M-u", spawn "bashrun2")
           , ("M-S-p", AL.launchApp myXPConfig $ "~/scripts/term_in_dir.sh")
@@ -88,7 +88,7 @@ myKeyMapping = [
           -- Some random launchers
           , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
           , ("M-p l", spawn "slock")
-          , ("M-p i", inTerm "ssh -t med@mancer.in screen -Rd")
+          , ("M-p i", inTerm "ssh -t med@mancer.in -p 2022 'tmux attach -t remote || tmux new -s remote'")
           , ("M-S-f f", spawn "chromium --incognito")
           , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
           , ("M-p w", spawn "virtualbox --startvm WinXP")
