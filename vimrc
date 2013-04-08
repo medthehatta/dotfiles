@@ -8,8 +8,8 @@ set copyindent          " copy the previous indentation level (doesn't this alre
 set autoread            " automatically reread a file if it was changed outside of vim
 set cmdheight=2         " by making the output line taller, you don't have to 'Enter to Continue' as often
 set expandtab           " turn tabs into spaces
-set tabstop=2           " 2 spaces per tab
-set shiftwidth=2        " 2 spaces per tab
+set tabstop=4           " 4 spaces per tab
+set shiftwidth=4        " 4 spaces per tab
 set smarttab            " leading tabs use shiftwidth instead of tabstop
 set hidden              " allow changing buffers without saving
 set hlsearch            " start with search highlighting on
