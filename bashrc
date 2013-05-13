@@ -44,3 +44,5 @@ alias clsg='clear && echo -n "@" && pwd && ls && echo && git branch && git statu
 alias drop1='HOME=/home/med/.dropbox1 dropbox'
 alias drop2='HOME=/home/med/.dropbox2 dropbox'
 
+#ssh keychain
+eval `keychain --eval --agents ssh -Q --quiet id_rsa` || exit 1
