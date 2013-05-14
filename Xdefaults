@@ -5,7 +5,7 @@ urxvt*termName: rxvt-unicode
 urxvt*scrollBar: false
 urxvt*saveLines: 20000
 urxvt*font: -*-dina-medium-r-*-*-*-*-*-*-*-*-*-*
-urxvt*boldFont: -*-dina-medium-r-*-*-*-*-*-*-*-*-*-*
+urxvt*boldFont: -*-dina-bold-r-*-*-*-*-*-*-*-*-*-*
 urxvt*foreground:   #ffffff
 urxvt**background:  #333333
 
@@ -42,7 +42,8 @@ urxvt*color7:  #ffffff
 urxvt*color15:  #ffffff
 
 urxvt.perl-ext-common: default,matcher
-urxvt.urlLauncher: chromium
+urxvt.url-launcher: chromium
+urxvt.matcher.buttom: 3
 urxvt.colorUL: #90d0f0
 
 
