@@ -92,6 +92,7 @@ myKeyMapping = [
           , ("M-S-f f", spawn "chromium --incognito")
           , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
           , ("M-p w", spawn "virtualbox --startvm WinXP")
+          , ("M-p q", spawn "ipython qtconsole")
 
           -- Take notes: either regular notes, or research notes (which I haven't done in ages :-p)
           , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
