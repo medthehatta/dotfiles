@@ -97,3 +97,7 @@ let g:EasyMotion_leader_key='<Leader>'
 hi link EasyMotionTarget Type
 hi link EasyMotionShade  PreProc
 
+" undotree
+nnoremap <f4> :UndotreeToggle<cr>
+set undofile
+
