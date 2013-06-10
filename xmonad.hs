@@ -46,6 +46,7 @@ myLayout = avoidStruts $ smartBorders $ myTiled ||| myTabbed ||| myFull
 -- Manage hook allowing for automatic dzen gap handling 
 myManageHook = composeAll
   [ resource =? "bashrun2-run-dialog" --> doFloat 
+  , title =? "Panda" --> doShift "9"
   , manageDocks 
   ] <+> manageHook defaultConfig
 
@@ -75,7 +76,7 @@ myKeyMapping = [
           , ("M-S-v c", spawn "rox /media/usb2")
 
           -- Terminal: Either scratchpad, persistent terminal, screen, conf, wifi
-          , ("M-x", spawn "tmux new -A -s scratchpad")
+          , ("M-x", inTerm "tmux new -A -s scratchpad")
           , ("M-d", spawn myTerminal)
           , ("M-u", spawn "bashrun2")
           , ("M-S-p", AL.launchApp myXPConfig $ "~/scripts/term_in_dir.sh")
@@ -85,8 +86,8 @@ myKeyMapping = [
           -- Some random launchers
           , ("M-p m", spawn "mendeleydesktop --force-bundled-qt")
           , ("M-p l", spawn "slock")
-          , ("M-p i", inTerm "ssh -t -p 2022 med@mancer.in screen -Rd")
-          , ("M-S-f f", spawn "chromium --incognito")
+          , ("M-p i", inTerm "~/scripts/ssh_to_mancer.sh")
+          , ("M-S-f i", spawn "chromium --incognito")
           , ("M-S-f p", spawn "~/scripts/proxy-browse.sh http://scholar.google.com") 
           , ("M-e n", spawn "~/scripts/mknotes.sh ~/ref/notes")
           , ("M-S-e n", inTerm "~/scripts/catnotes.sh ~/ref/notes")
