@@ -43,7 +43,6 @@ urxvt*color15:  #ffffff
 
 urxvt.perl-ext-common: default,matcher
 urxvt.url-launcher: chromium
-urxvt.matcher.buttom: 3
 urxvt.colorUL: #90d0f0
 
 
