@@ -27,6 +27,8 @@ set wildmode=list:longest,full          " how to display completion lists
 set gdefault            " when replacing, assume global replacement
 set wrap                " wrap words...
 set linebreak           " ...so that lines only break at 'breakable' characters
+set encoding=utf-8      " use utf-8 in display
+set fileencodings=utf-8 " save with utf-8 encoding (or, if fails, default)
 
 " toggle search highlighting
 nnoremap <Space> :set hlsearch!<CR>
@@ -56,9 +58,6 @@ nnoremap gs yypVr
 " quick way to leave insert mode (part one)
 inoremap kj <esc>
 inoremap jk <esc>
-
-" quick write
-nnoremap W :w<CR>
 
 " i use C-r as my screen escape, so avoid it
 inoremap <C-e> <C-r>                    
