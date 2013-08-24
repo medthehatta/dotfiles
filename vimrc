@@ -1,6 +1,7 @@
 " Pathogen makes it easy to install vim plugins
 call pathogen#infect()
 call pathogen#helptags()
+" undotree, vim-fugitive, ctrlp, snipmate
 
 " Preferences
 set autoindent          " when making a new line, start at the current indent level
