@@ -45,4 +45,5 @@ alias drop1='HOME=/home/med/.dropbox1 dropbox'
 alias drop2='HOME=/home/med/.dropbox2 dropbox'
 
 #ssh keychain
-eval `keychain --eval --agents ssh -Q --quiet id_rsa` || exit 1
+eval $(keychain --eval --quiet) || exit 1
+export GPG_TTY=$(tty)
