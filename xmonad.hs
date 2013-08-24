@@ -50,6 +50,7 @@ myLayout = avoidStruts $ smartBorders $ myTiled ||| myTabbed ||| myFull
 -- Manage hook allowing for automatic dzen gap handling 
 myManageHook = composeAll
   [ resource =? "bashrun2-run-dialog" --> doFloat 
+  , className =? "feh"                --> doFloat
   , manageDocks 
   ] <+> manageHook defaultConfig
 
